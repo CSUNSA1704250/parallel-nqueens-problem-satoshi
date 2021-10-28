@@ -15,7 +15,7 @@ cmake ..
 ```
 If you are on *Windows*, CMake may deal with compiling by running:
 ```batch
-cmake --build 
+cmake --build ./build --config [Debug, Release] --target ALL_BUILD
 ```
 But if you are on *Linux*, just run the makefile command:
 ```shell

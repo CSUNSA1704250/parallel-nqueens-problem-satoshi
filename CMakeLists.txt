@@ -20,19 +20,15 @@ include(GNUInstallDirs)
 
 # Get Source Files
 set(NQUEENS_SOURCES
+    src/format.cpp
     src/nqueens.cpp
 )
 
 # Buil library
 add_library(${NQUEENS_LIB_NAME} STATIC ${NQUEENS_SOURCES})
-set_target_properties(${NQUEENS_LIB_NAME}
-PROPERTIES
-    PUBLIC_HEADER include/nqueens.hpp
-)
 target_compile_definitions(${NQUEENS_LIB_NAME}
 PRIVATE
     __STDC_LIB_EXT1__
-    __NQUEENS_COMPILING
 )
 target_include_directories(${NQUEENS_LIB_NAME} PRIVATE include)
 

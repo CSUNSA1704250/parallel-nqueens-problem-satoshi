@@ -21,15 +21,12 @@
  *                                                                              *
  ********************************************************************************/
 
-#include <nqueens.hpp>
+#include <format.hpp>
 
-#include <iostream>
-
-namespace nq
+namespace fmt
 {
-void solveFor(int32 n)
+ArgParser::ArgParser()
 {
-    std::cout << "Solving N-Queens" << std::endl;
 }
 
-} // namespace nq
+} // namespace fmt

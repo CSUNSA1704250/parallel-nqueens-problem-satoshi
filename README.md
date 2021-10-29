@@ -13,7 +13,8 @@ mkdir build
 cd build
 cmake ..
 ```
-If you are on *Windows*, CMake may deal with compiling by running:
+If you are on *Windows*, CMake may deal with compiling.
+### **Note**: Select Release Config in order to get Optimized Version.
 ```batch
 cmake --build ./build --config [Debug, Release] --target ALL_BUILD
 ```

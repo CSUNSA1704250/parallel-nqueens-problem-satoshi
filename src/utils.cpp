@@ -23,14 +23,16 @@
 
 #include <utils.hpp>
 
+#include <algorithm>
+
 namespace utils
 {
 bool isNumber(const std::string& s)
 {
     return !s.empty() &&
-        std::find_if(s.begin(), s.end(),
+        std::find_if_not(s.begin(), s.end(),
         [](char c) -> bool {
-            return !std::isdigit(c);
+            return std::isdigit(c);
         }) == s.end();
 }
 

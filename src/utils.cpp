@@ -47,19 +47,19 @@ bool parseInput(int argc, char** argv, int& n, bool& problemType)
     if( argv1 == "--problemType" &&
         argv3 == "-N")
     {
-        ni = 3;
-        pti = 1;
+        ni = 4;
+        pti = 2;
     }
     else if(argv1 == "-N" &&
             argv3 == "--problemType")
     {
-        ni = 1;
-        pti = 3;
+        ni = 2;
+        pti = 4;
     }
     else return false;
 
-    std::string nStr {argv[ni + 1]};
-    std::string problemTypeStr {argv[pti + 1]};
+    std::string nStr {argv[ni]};
+    std::string problemTypeStr {argv[pti]};
 
     if(isNumber(nStr))
         n = std::stoi(nStr);

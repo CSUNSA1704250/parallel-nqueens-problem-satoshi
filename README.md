@@ -7,7 +7,7 @@
 
 ## Compile Instructions
 We use CMake in order to accomplish the compile tasks easily.
-Instructions are simple; once in the source directory, run:
+Instructions are simple; once in the source directory, configure by running:
 ```batch
 mkdir build
 cd build

@@ -21,17 +21,57 @@
  *                                                                              *
  ********************************************************************************/
 
-#ifndef FORMAT_HPP
-#define FORMAT_HPP
+#include <utils.hpp>
 
-namespace fmt
+namespace utils
 {
-class ArgParser
+bool isNumber(const std::string& s)
 {
-public:
-    ArgParser();
-};
+    return !s.empty() &&
+        std::find_if(s.begin(), s.end(),
+        [](char c) -> bool {
+            return !std::isdigit(c);
+        }) == s.end();
+}
 
-} // namespace fmt
+bool parseInput(int argc, char** argv, int& n, bool& problemType)
+{
+    if(argc != 5)
+        return false;
 
-#endif // FORMAT_HPP
+    int ni, pti;
+    std::string argv1 {argv[1]};
+    std::string argv3 {argv[3]};
+    if( argv1 == "--problemType" &&
+        argv3 == "-N")
+    {
+        ni = 3;
+        pti = 1;
+    }
+    else if(argv1 == "-N" &&
+            argv3 == "--problemType")
+    {
+        ni = 1;
+        pti = 3;
+    }
+    else return false;
+
+    std::string nStr {argv[ni + 1]};
+    std::string problemTypeStr {argv[pti + 1]};
+
+    if(isNumber(nStr))
+        n = std::stoi(nStr);
+    else
+        return false;
+
+    if(problemTypeStr == "all")
+        problemType = false;
+    else if(problemTypeStr == "find")
+        problemType = true;
+    else
+        return false;
+
+    return true;
+}
+
+} // namespace utils

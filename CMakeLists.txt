@@ -13,14 +13,14 @@ project(NQueens)
 set(CMAKE_CXX_STANDARD 11)
 
 # Set generic lib name
-set(NQUEENS_LIB_NAME nqueens)
+set(NQUEENS_LIB_NAME nqueensLib)
 
 # GNU Install Dirs
 include(GNUInstallDirs)
 
 # Get Source Files
 set(NQUEENS_SOURCES
-    src/format.cpp
+    src/utils.cpp
     src/nqueens.cpp
 )
 
@@ -33,11 +33,11 @@ PRIVATE
 target_include_directories(${NQUEENS_LIB_NAME} PRIVATE include)
 
 # Build main executable
-add_executable(main src/main.cpp)
-target_include_directories(main PRIVATE include)
-target_compile_definitions(main
+add_executable(nqueens src/main.cpp)
+target_include_directories(nqueens PRIVATE include)
+target_compile_definitions(nqueens
 PRIVATE
     __STDC_LIB_EXT1__
 )
-target_compile_options(main PRIVATE /openmp)
-target_link_libraries(main LINK_PUBLIC ${NQUEENS_LIB_NAME})
+target_compile_options(nqueens PRIVATE /openmp)
+target_link_libraries(nqueens LINK_PUBLIC ${NQUEENS_LIB_NAME})

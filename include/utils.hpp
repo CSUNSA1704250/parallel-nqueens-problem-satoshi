@@ -21,12 +21,17 @@
  *                                                                              *
  ********************************************************************************/
 
-#include <format.hpp>
+#ifndef UTILS_HPP
+#define UTILS_HPP
 
-namespace fmt
-{
-ArgParser::ArgParser()
-{
-}
+#include <string>
 
-} // namespace fmt
+namespace utils
+{
+bool isNumber(const std::string& s);
+
+bool parseInput(int argc, char** argv, int& n, bool& problemType);
+
+} // namespace utils
+
+#endif // UTILS_HPP

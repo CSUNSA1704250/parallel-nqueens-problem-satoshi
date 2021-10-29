@@ -30,6 +30,7 @@ Target Executable file follows a simple structure:
 For example, this would be a valid command:
 ```
 ./nqueens --problemType all -N 8
+./nqueens -N 4 --problemType find
 ```
 
 ## Plotting Solution

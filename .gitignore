@@ -5,6 +5,7 @@ build
 
 # Files
 *.bat
+solution.dot
 
 # Excecutables, pdbs and dlls
 *.dll

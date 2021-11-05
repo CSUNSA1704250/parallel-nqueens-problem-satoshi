@@ -23,7 +23,12 @@
 
 #include <utils.hpp>
 
+#include <fstream>
+#include <iostream>
 #include <algorithm>
+
+#define QUEEN_STR "&#9813; "
+#define EMPTY_STR "    "
 
 namespace utils
 {
@@ -74,6 +79,52 @@ bool parseInput(int argc, char** argv, int& n, bool& problemType)
         return false;
 
     return true;
+}
+
+void promptUser()
+{
+    std::cout << "Correct Usage:\n";
+    std::cout << "./nqueens --problemType [all, find] -N <number_of_queens>";
+    std::cout << "\nor\n";
+    std::cout << "./nqueens -N <number_of_queens> --problemType [all, find]";
+    std::cout << std::endl;
+}
+
+void plot(bool** board, int n)
+{
+    std::ofstream out;
+    out.open("solution.dot");
+
+    out <<
+    "digraph D {\n"
+    "    node [shape = plaintext]\n"
+    "\n"
+    "    some_node [\n"
+    "        label = <\n"
+    "            <table border=\"0\" cellborder=\"1\" cellspacing=\"0\">\n";
+
+    for(int i {0}; i < n; ++i)
+    {
+        out << "                <tr>";
+        for(int j {0}; j < n; ++j)
+        {
+            out << "<td>";
+            if(board[i][j])
+                out << QUEEN_STR;
+            else
+                out << EMPTY_STR;
+            out << "</td>";
+        }
+        out << "</tr>\n";
+    }
+
+    out <<
+    "            </table>\n"
+    "        >\n"
+    "    ];\n"
+    "}" << std::endl;
+
+    out.close();
 }
 
 } // namespace utils

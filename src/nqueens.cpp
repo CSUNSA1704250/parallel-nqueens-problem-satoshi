@@ -21,15 +21,27 @@
  *                                                                              *
  ********************************************************************************/
 
+#include <utils.hpp>
 #include <nqueens.hpp>
 
+#include <list>
 #include <iostream>
 
 namespace nq
 {
-void solveFor(int32 n)
+void solveFor(int32 n, bool plot)
 {
-    std::cout << "Solving N-Queens" << std::endl;
+    bool** board {new bool*[n]};
+    for(int i {0}; i < n; ++i)
+        board[i] = new bool[n] {};
+    board[0][0] = true;
+
+    if(plot)
+        utils::plot(board, n);
+
+    for(int i {0}; i < n; ++i)
+        delete[] board[i];
+    delete[] board;
 }
 
 } // namespace nq

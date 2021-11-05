@@ -32,6 +32,10 @@ bool isNumber(const std::string& s);
 
 bool parseInput(int argc, char** argv, int& n, bool& problemType);
 
+void promptUser();
+
+void plot(bool** board, int n);
+
 } // namespace utils
 
 #endif // UTILS_HPP

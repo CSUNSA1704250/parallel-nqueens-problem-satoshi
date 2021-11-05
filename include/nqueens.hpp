@@ -28,7 +28,7 @@
 
 namespace nq
 {
-void solveFor(int32 n);
+void solveFor(int32 n, bool plot = false);
 
 } // namespace nq
 

@@ -41,7 +41,7 @@ bool isNumber(const std::string& s)
         }) == s.end();
 }
 
-bool parseInput(int argc, char** argv, int& n, bool& problemType)
+bool parseInput(int argc, char** argv, int& n, bool& all)
 {
     if(argc != 5)
         return false;
@@ -72,9 +72,9 @@ bool parseInput(int argc, char** argv, int& n, bool& problemType)
         return false;
 
     if(problemTypeStr == "all")
-        problemType = false;
+        all = true;
     else if(problemTypeStr == "find")
-        problemType = true;
+        all = false;
     else
         return false;
 
@@ -88,6 +88,21 @@ void promptUser()
     std::cout << "\nor\n";
     std::cout << "./nqueens -N <number_of_queens> --problemType [all, find]";
     std::cout << std::endl;
+}
+
+void exportSolutions(int n, std::vector<std::vector<int>>& solutions)
+{
+    std::ofstream out;
+    out.open("solutions.txt");
+    out << "#Solutions for " << n << " queens" << std::endl;
+    out << solutions.size() << std::endl;
+    for(const std::vector<int>& solution : solutions)
+    {
+        for(int i : solution)
+            out << i << ' ';
+        out << std::endl;
+    }
+    out.close();
 }
 
 void plot(bool** board, int n)

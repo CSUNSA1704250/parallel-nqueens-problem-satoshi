@@ -29,18 +29,14 @@
 int main(int argc, char** argv)
 {
     int n;
-    bool problemType;
-    if(!utils::parseInput(argc, argv, n, problemType))
+    bool all;
+    if(!utils::parseInput(argc, argv, n, all))
     {
         utils::promptUser();
         return 0;
     }
 
-    if(problemType)
-        nq::solveFor(n, true);
-    else
-        for(int i {4}; i <= n; ++i)
-            nq::solveFor(i);
+    nq::solveFor(n, all);
 
     return 0;
 }

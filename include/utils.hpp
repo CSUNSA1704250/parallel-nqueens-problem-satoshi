@@ -25,14 +25,17 @@
 #define UTILS_HPP
 
 #include <string>
+#include <vector>
 
 namespace utils
 {
 bool isNumber(const std::string& s);
 
-bool parseInput(int argc, char** argv, int& n, bool& problemType);
+bool parseInput(int argc, char** argv, int& n, bool& all);
 
 void promptUser();
+
+void exportSolutions(int n, std::vector<std::vector<int>>& solutions);
 
 void plot(bool** board, int n);
 

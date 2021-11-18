@@ -6,6 +6,8 @@ build
 # Files
 *.bat
 solution.dot
+solution.png
+solutions.txt
 
 # Excecutables, pdbs and dlls
 *.dll

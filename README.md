@@ -11,12 +11,12 @@ Instructions are simple; once in the source directory, configure by running:
 ```batch
 mkdir build
 cd build
-cmake ..
+cmake --config Release ..
 ```
 If you are on *Windows*, CMake may deal with compiling.
 ### **Note**: Select Release Config in order to get Optimized Version.
 ```batch
-cmake --build ./build --config [Debug, Release] --target ALL_BUILD
+cmake --build ./build --config Release --target ALL_BUILD
 ```
 But if you are on *Linux*, just run the makefile command:
 ```shell

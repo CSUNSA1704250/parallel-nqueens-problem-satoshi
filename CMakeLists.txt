@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.9)
 
 # Disable CYGWIN Legacy Warning
 set(CMAKE_LEGACY_CYGWIN_WIN32 0)
@@ -39,5 +39,4 @@ target_compile_definitions(nqueens
 PRIVATE
     __STDC_LIB_EXT1__
 )
-target_compile_options(nqueens PRIVATE /openmp)
 target_link_libraries(nqueens LINK_PUBLIC ${NQUEENS_LIB_NAME})
